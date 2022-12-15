@@ -47,7 +47,7 @@ class Collections extends Component {
 
     return (
       <>
-        {categories.map(category => (
+        {Array.isArray(categories) ? categories.map(category => (
           <div key={category.id} className="custom-container">
             <div className="row">
               <div className="col-2 d-none d-lg-block position-relative">
@@ -72,7 +72,7 @@ class Collections extends Component {
               </div>
             </div>
           </div>
-        ))}
+        )) : ''}
       </>
     );
   }
@@ -99,7 +99,7 @@ class Collections extends Component {
 
     return (
       <div className="collection">
-        {categories.map(category => (
+        { Array.isArray(categories) ? categories.map(category => (
           <div key={category.id}>
               <p className="font-size-title font-weight-medium mb-4" id={category.slug}>
                 {category.name}
@@ -119,7 +119,7 @@ class Collections extends Component {
                 ))}
               </div>
           </div>
-        ))}
+        )) : ''}
       </div>
     )
   }
